@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head></h:head>
+<h:body>
+	<h:form id="mainForm">
+		<rich:collapsiblePanel id="characterList" header="Characters"
+			headerClass="header" title="Click to expand/collapse">
+			<h:panelGroup rendered="#{empty characters}">
+				<em>No registered members.</em>
+			</h:panelGroup>
+			<rich:dataTable var="char" value="#{characters}"
+				rendered="#{not empty characters}" style="width : 100%">
+				<rich:column>
+					<f:facet name="header">Id</f:facet>
+                    #{char.id}
+                </rich:column>
+				<rich:column>
+					<f:facet name="header">Name</f:facet>
+                    #{char.name}
+                </rich:column>
+				<rich:column>
+					<f:facet name="header">Player</f:facet>
+                    #{char.player}
+                </rich:column>
+				<rich:column>
+					<f:facet name="header">Campaign</f:facet>
+                    #{char.campaign}
+                </rich:column>
+				<f:facet name="footer">
+					<h:commandButton action="palladium/ccStepOne" value="Create">
+						<f:param name="char" value="#{newCharacter}" />
+					</h:commandButton>
+				</f:facet>
+			</rich:dataTable>
+		</rich:collapsiblePanel>
+	</h:form>
+</h:body>
+</html>
