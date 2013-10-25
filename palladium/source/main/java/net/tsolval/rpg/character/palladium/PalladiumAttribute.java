@@ -127,4 +127,14 @@ public class PalladiumAttribute implements Attribute {
 	public void setValue(Integer value) {
 		this.value = value;
 	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return String.format("%s(%s)", shortName, value);
+	}
 }
