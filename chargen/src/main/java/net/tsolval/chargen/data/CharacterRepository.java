@@ -25,7 +25,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
-import net.tsolval.chargen.model.Character;
+import net.tsolval.rpg.Character;
 
 @ApplicationScoped
 public class CharacterRepository {

@@ -26,7 +26,7 @@ import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import net.tsolval.chargen.model.Character;
+import net.tsolval.rpg.Character;
 
 @RequestScoped
 public class CharacterListProducer {
