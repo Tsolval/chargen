@@ -10,22 +10,22 @@ import net.tsolval.rpg.Attribute;
  * 
  */
 public class PalladiumAttribute implements Attribute {
-	public static final PalladiumAttribute IQ = new PalladiumAttribute(
+	public static final Attribute IQ = new PalladiumAttribute(
 			"Intelligence Quotient", "I.Q.", "");
-	public static final PalladiumAttribute ME = new PalladiumAttribute(
+	public static final Attribute ME = new PalladiumAttribute(
 			"Mental Endurance", "M.E.", "");
-	public static final PalladiumAttribute MA = new PalladiumAttribute(
+	public static final Attribute MA = new PalladiumAttribute(
 			"Mental Affinity", "M.A.", "");
-	public static final PalladiumAttribute PE = new PalladiumAttribute(
+	public static final Attribute PE = new PalladiumAttribute(
 			"Physical Endurance", "P.E.", "");
-	public static final PalladiumAttribute PP = new PalladiumAttribute(
+	public static final Attribute PP = new PalladiumAttribute(
 			"Physical Prowess", "P.P.", "");
-	public static final PalladiumAttribute PB = new PalladiumAttribute(
+	public static final Attribute PB = new PalladiumAttribute(
 			"Physical Beauty", "P.B.", "");
-	public static final PalladiumAttribute PS = new PalladiumAttribute(
+	public static final Attribute PS = new PalladiumAttribute(
 			"Physical Strength", "P.S.", "");
-	public static final PalladiumAttribute SPD = new PalladiumAttribute(
-			"Speed", "Spd.", "");
+	public static final Attribute SPD = new PalladiumAttribute("Speed", "Spd.",
+			"");
 
 	// properties
 	private String name;
@@ -47,7 +47,7 @@ public class PalladiumAttribute implements Attribute {
 	 * @param value
 	 *            - the value of the attribute
 	 */
-	public PalladiumAttribute(PalladiumAttribute mold, Integer value) {
+	public PalladiumAttribute(Attribute mold, Integer value) {
 		setName(mold.getName());
 		setShortName(mold.getShortName());
 		setDescription(mold.getDescription());
