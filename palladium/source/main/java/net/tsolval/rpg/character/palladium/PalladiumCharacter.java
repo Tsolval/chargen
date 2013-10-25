@@ -77,4 +77,16 @@ public class PalladiumCharacter implements Character {
 	public void setAttributes(List<Attribute> attributes) {
 		this.attributes = attributes;
 	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return String
+				.format("PalladiumCharacter [name=%s, player=%s, campaign=%s, attributes=%s]",
+						name, player, campaign, attributes);
+	}
 }
