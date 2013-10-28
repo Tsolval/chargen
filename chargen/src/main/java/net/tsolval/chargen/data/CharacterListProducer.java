@@ -26,7 +26,7 @@ import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import net.tsolval.rpg.Character;
+import net.tsolval.rpg.character.palladium.PalladiumCharacter;
 
 @RequestScoped
 public class CharacterListProducer {
@@ -34,7 +34,7 @@ public class CharacterListProducer {
 	@Inject
 	private CharacterRepository characterRepository;
 
-	private List<Character> characters;
+	private List<PalladiumCharacter> characters;
 
 	/*
 	 * @Named provides access the return value via the EL variable name
@@ -42,7 +42,7 @@ public class CharacterListProducer {
 	 */
 	@Produces
 	@Named
-	public List<Character> getCharacters() {
+	public List<PalladiumCharacter> getCharacters() {
 		return characters;
 	}
 

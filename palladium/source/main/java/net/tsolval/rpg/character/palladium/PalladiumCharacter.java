@@ -5,6 +5,11 @@ package net.tsolval.rpg.character.palladium;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import net.tsolval.rpg.Attribute;
 import net.tsolval.rpg.Character;
 
@@ -12,11 +17,31 @@ import net.tsolval.rpg.Character;
  * @author walker.d.adams
  * 
  */
+@Entity
+@Table(name = "PALLADIUM_CHARACTER")
 public class PalladiumCharacter implements Character {
+	@Id
+	@GeneratedValue
+	private Integer id;
 	private String name;
 	private String player;
 	private String campaign;
 	private List<Attribute> attributes;
+
+	/**
+	 * @return the id
+	 */
+	public Integer getId() {
+		return id;
+	}
+
+	/**
+	 * @param id
+	 *            the id to set
+	 */
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	/**
 	 * @return the name

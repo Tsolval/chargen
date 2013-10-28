@@ -3,6 +3,7 @@
 	<name>chargen</name>
 	<comment></comment>
 	<projects>
+		<project>palladium</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

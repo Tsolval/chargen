@@ -25,7 +25,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
-import net.tsolval.rpg.Character;
+import net.tsolval.rpg.character.palladium.PalladiumCharacter;
 
 @ApplicationScoped
 public class CharacterRepository {
@@ -33,10 +33,12 @@ public class CharacterRepository {
 	@Inject
 	private EntityManager em;
 
-	public List<Character> findAllOrderedByName() {
+	public List<PalladiumCharacter> findAllOrderedByName() {
 		CriteriaBuilder cb = em.getCriteriaBuilder();
-		CriteriaQuery<Character> criteria = cb.createQuery(Character.class);
-		Root<Character> character = criteria.from(Character.class);
+		CriteriaQuery<PalladiumCharacter> criteria = cb
+				.createQuery(PalladiumCharacter.class);
+		Root<PalladiumCharacter> character = criteria
+				.from(PalladiumCharacter.class);
 		criteria.select(character).orderBy(cb.asc(character.get("name")));
 		return em.createQuery(criteria).getResultList();
 	}
