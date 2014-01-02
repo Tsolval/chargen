@@ -9,31 +9,6 @@
 <h:head></h:head>
 <h:body>
 	<h:form id="mainForm">
-		<rich:collapsiblePanel id="campaignList" header="Campaigns"
-			headerClass="header" title="Click to expand/collapse">
-			<h:panelGroup rendered="#{empty campaigns}">
-				<em>No campaigns.</em>
-			</h:panelGroup>
-			<rich:dataTable var="campaign" value="#{campaigns}"
-				rendered="#{not empty campaigns}" style="width : 100%">
-				<rich:column>
-					<f:facet name="header">Id</f:facet>
-                    #{campaign.id}
-                </rich:column>
-				<rich:column>
-					<f:facet name="header">Name</f:facet>
-                    #{campaign.name}
-                </rich:column>
-				<rich:column>
-					<f:facet name="header">Game Master</f:facet>
-                    #{campaign.gameMaster}
-                </rich:column>
-				<rich:column>
-					<f:facet name="header">Game</f:facet>
-                    #{campaign.game}
-                </rich:column>
-			</rich:dataTable>
-		</rich:collapsiblePanel>
 		<rich:collapsiblePanel id="characterList" header="Characters"
 			headerClass="header" title="Click to expand/collapse">
 			<h:panelGroup rendered="#{empty characters}">

@@ -11,10 +11,6 @@ public class PalladiumCharacterBean {
 
 	private PalladiumCharacter character;
 
-	public void rollAttributes() {
-
-	}
-
 	/**
 	 * @return the character
 	 */

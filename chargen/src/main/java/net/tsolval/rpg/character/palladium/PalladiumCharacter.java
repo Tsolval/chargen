@@ -6,14 +6,13 @@ package net.tsolval.rpg.character.palladium;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  * @author walker.d.adams
  * 
  */
 @Entity
-@Table
 public class PalladiumCharacter {
 	@Id
 	@GeneratedValue
@@ -21,13 +20,21 @@ public class PalladiumCharacter {
 	private String name;
 	private String player;
 	private String campaign;
+	@Transient
 	private PalladiumAttribute iq = PalladiumAttribute.IQ;
+	@Transient
 	private PalladiumAttribute me = PalladiumAttribute.ME;
+	@Transient
 	private PalladiumAttribute ma = PalladiumAttribute.MA;
+	@Transient
 	private PalladiumAttribute pe = PalladiumAttribute.PE;
+	@Transient
 	private PalladiumAttribute pp = PalladiumAttribute.PP;
+	@Transient
 	private PalladiumAttribute ps = PalladiumAttribute.PS;
+	@Transient
 	private PalladiumAttribute pb = PalladiumAttribute.PB;
+	@Transient
 	private PalladiumAttribute spd = PalladiumAttribute.SPD;
 
 	/**

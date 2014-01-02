@@ -17,10 +17,10 @@ public class PalladiumCharacterBeanTest {
 		bean = new PalladiumCharacterBean();
 		assertNull("Error: Not starting with a clean bean!", bean
 				.getCharacter().getIq());
-		bean.rollAttributes();
+		// bean.rollAttributes();
 		assertNotNull("Error: Bean not updated!", bean.getCharacter());
-		assertTrue("Invalid Attribute resulted!",
-				bean.getCharacter().getIq().getValue() >= 3);
+		assertTrue("Invalid Attribute resulted!", bean.getCharacter().getIq()
+				.getValue() >= 3);
 	}
 
 }
