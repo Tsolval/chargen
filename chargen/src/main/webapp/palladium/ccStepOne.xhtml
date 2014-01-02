@@ -9,63 +9,27 @@
 
 <h:head></h:head>
 <body>
-	<rich:panel style="width: 200px">
+	<rich:panel style="width: 100px">
 		<f:facet name="header">
-			<div align="center">The Eight Attributes</div>
+			<div align="center">Attributes</div>
 		</f:facet>
 		<h:form>
-			<h:panelGrid columns="3">
-				<h:outputLabel id="iqlabel" for="iqfield" value="I.Q.:" />
-				<h:inputText id="iqfield" value="#{newCharacter.iq.value}" />
-				<h:commandLink id="iqlock">
-					<h:graphicImage value="img/lock.png" height="10" />
-				</h:commandLink>
+			<table>
+				<ui:repeat var="attribute" value="#{newCharacter.attributeList}">
+					<tr>
+						<td><h:outputLabel id="#{attribute.shortName}label"
+								for="#{attribute.shortName}field"
+								value="#{attribute.shortName}:" /></td>
+						<td><h:inputText id="#{attribute.shortName}field"
+								value="#{attribute.value}" size="2" /></td>
+					</tr>
+				</ui:repeat>
 
-				<h:outputLabel id="melabel" for="mefield" value="M.E.:" />
-				<h:inputText id="mefield" value="#{newCharacter.me.value}" />
-				<h:commandLink id="melock">
-					<h:graphicImage value="img/lock.png" height="10" />
-				</h:commandLink>
-
-				<h:outputLabel id="malabel" for="mafield" value="M.A.:" />
-				<h:inputText id="mafield" value="#{newCharacter.ma.value}" />
-				<h:commandLink id="malock">
-					<h:graphicImage value="img/lock.png" height="10" />
-				</h:commandLink>
-
-				<h:outputLabel id="pslabel" for="psfield" value="P.S.:" />
-				<h:inputText id="psfield" value="#{newCharacter.ps.value}" />
-				<h:commandLink id="pslock">
-					<h:graphicImage value="img/lock.png" height="10" />
-				</h:commandLink>
-
-				<h:outputLabel id="pplabel" for="ppfield" value="P.P.:" />
-				<h:inputText id="ppfield" value="#{newCharacter.pp.value}" />
-				<h:commandLink id="pplock">
-					<h:graphicImage value="img/lock.png" height="10" />
-				</h:commandLink>
-
-				<h:outputLabel id="pelabel" for="pefield" value="P.E.:" />
-				<h:inputText id="pefield" value="#{newCharacter.pe.value}" />
-				<h:commandLink id="pelock">
-					<h:graphicImage value="img/lock.png" height="10" />
-				</h:commandLink>
-
-				<h:outputLabel id="pblabel" for="pbfield" value="P.B.:" />
-				<h:inputText id="pbfield" value="#{newCharacter.pb.value}" />
-				<h:commandLink id="pblock">
-					<h:graphicImage value="img/lock.png" height="10" />
-				</h:commandLink>
-
-				<h:outputLabel id="spdlabel" for="spdfield" value="Spd.:" />
-				<h:inputText id="spdfield" value="#{newCharacter.spd.value}" />
-				<h:commandLink id="spdlock">
-					<h:graphicImage value="img/lock.png" height="10" />
-				</h:commandLink>
-			</h:panelGrid>
-			<div align="right">
+			</table>
+			<div align="center">
 				<h:commandButton
-					action="#{characterController.generateAttributes()}" value="Roll" />
+					action="#{characterController.generateAttributes()}"
+					value="Re-Roll" />
 			</div>
 		</h:form>
 	</rich:panel>

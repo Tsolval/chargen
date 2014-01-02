@@ -19,20 +19,16 @@ public class CharacterController {
 	private Dice dice;
 
 	public void generateAttributes() {
-		System.out.println("generating attributes...");
-		newCharacter.setIq(rollAttribute(newCharacter.getIq()));
-		newCharacter.setMa(rollAttribute(newCharacter.getMa()));
-		newCharacter.setMe(rollAttribute(newCharacter.getMe()));
-		newCharacter.setPb(rollAttribute(newCharacter.getPb()));
-		newCharacter.setPe(rollAttribute(newCharacter.getPe()));
-		newCharacter.setPp(rollAttribute(newCharacter.getPp()));
-		newCharacter.setPs(rollAttribute(newCharacter.getPs()));
-		newCharacter.setSpd(rollAttribute(newCharacter.getSpd()));
+		for (PalladiumAttribute attribute : newCharacter.getAttributeList()) {
+			rollAttribute(attribute);
+		}
 	}
 
-	public PalladiumAttribute rollAttribute(PalladiumAttribute attribute) {
-		return new PalladiumAttribute(attribute, dice.sum(dice.roll(3,
-				Dice.SIX_SIDED)));
+	public void rollAttribute(PalladiumAttribute attribute) {
+		int value = dice.sum(dice.roll(3, Dice.SIX_SIDED));
+		PalladiumAttribute newAttribute = new PalladiumAttribute(attribute,
+				value);
+		newCharacter.setAttribute(newAttribute);
 	}
 
 	@PostConstruct

@@ -3,6 +3,11 @@
  */
 package net.tsolval.rpg.character.palladium;
 
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -21,21 +26,7 @@ public class PalladiumCharacter {
 	private String player;
 	private String campaign;
 	@Transient
-	private PalladiumAttribute iq = PalladiumAttribute.IQ;
-	@Transient
-	private PalladiumAttribute me = PalladiumAttribute.ME;
-	@Transient
-	private PalladiumAttribute ma = PalladiumAttribute.MA;
-	@Transient
-	private PalladiumAttribute pe = PalladiumAttribute.PE;
-	@Transient
-	private PalladiumAttribute pp = PalladiumAttribute.PP;
-	@Transient
-	private PalladiumAttribute ps = PalladiumAttribute.PS;
-	@Transient
-	private PalladiumAttribute pb = PalladiumAttribute.PB;
-	@Transient
-	private PalladiumAttribute spd = PalladiumAttribute.SPD;
+	private Map<String, PalladiumAttribute> attributes;
 
 	/**
 	 * @return the id
@@ -110,25 +101,10 @@ public class PalladiumCharacter {
 	}
 
 	/**
-	 * @return the iq
-	 */
-	public PalladiumAttribute getIq() {
-		return iq;
-	}
-
-	/**
-	 * @param iq
-	 *            the iq to set
-	 */
-	public void setIq(PalladiumAttribute iq) {
-		this.iq = iq;
-	}
-
-	/**
 	 * @return the me
 	 */
 	public PalladiumAttribute getMe() {
-		return me;
+		return getAttributes().get("ME");
 	}
 
 	/**
@@ -136,14 +112,14 @@ public class PalladiumCharacter {
 	 *            the me to set
 	 */
 	public void setMe(PalladiumAttribute me) {
-		this.me = me;
+		getAttributes().put("ME", me);
 	}
 
 	/**
 	 * @return the ma
 	 */
 	public PalladiumAttribute getMa() {
-		return ma;
+		return getAttributes().get("MA");
 	}
 
 	/**
@@ -151,14 +127,14 @@ public class PalladiumCharacter {
 	 *            the ma to set
 	 */
 	public void setMa(PalladiumAttribute ma) {
-		this.ma = ma;
+		getAttributes().put("MA", ma);
 	}
 
 	/**
 	 * @return the pe
 	 */
 	public PalladiumAttribute getPe() {
-		return pe;
+		return getAttributes().get("PE");
 	}
 
 	/**
@@ -166,14 +142,14 @@ public class PalladiumCharacter {
 	 *            the pe to set
 	 */
 	public void setPe(PalladiumAttribute pe) {
-		this.pe = pe;
+		getAttributes().put("PE", pe);
 	}
 
 	/**
 	 * @return the pp
 	 */
 	public PalladiumAttribute getPp() {
-		return pp;
+		return getAttributes().get("PP");
 	}
 
 	/**
@@ -181,14 +157,14 @@ public class PalladiumCharacter {
 	 *            the pp to set
 	 */
 	public void setPp(PalladiumAttribute pp) {
-		this.pp = pp;
+		getAttributes().put("PP", pp);
 	}
 
 	/**
 	 * @return the ps
 	 */
 	public PalladiumAttribute getPs() {
-		return ps;
+		return getAttributes().get("PS");
 	}
 
 	/**
@@ -196,14 +172,14 @@ public class PalladiumCharacter {
 	 *            the ps to set
 	 */
 	public void setPs(PalladiumAttribute ps) {
-		this.ps = ps;
+		getAttributes().put("PS", ps);
 	}
 
 	/**
 	 * @return the pb
 	 */
 	public PalladiumAttribute getPb() {
-		return pb;
+		return getAttributes().get("PB");
 	}
 
 	/**
@@ -211,14 +187,15 @@ public class PalladiumCharacter {
 	 *            the pb to set
 	 */
 	public void setPb(PalladiumAttribute pb) {
-		this.pb = pb;
+		getAttributes().put("PB", pb);
 	}
 
 	/**
 	 * @return the spd
 	 */
 	public PalladiumAttribute getSpd() {
-		return spd;
+		return getAttributes().get("SPD");
+
 	}
 
 	/**
@@ -226,6 +203,59 @@ public class PalladiumCharacter {
 	 *            the spd to set
 	 */
 	public void setSpd(PalladiumAttribute spd) {
-		this.spd = spd;
+		getAttributes().put("SPD", spd);
+	}
+
+	/**
+	 * @return the attributes
+	 */
+	public Map<String, PalladiumAttribute> getAttributes() {
+		if (attributes == null) {
+			attributes = new LinkedHashMap<String, PalladiumAttribute>();
+			attributes.put("IQ", PalladiumAttribute.IQ);
+			attributes.put("MA", PalladiumAttribute.MA);
+			attributes.put("ME", PalladiumAttribute.ME);
+			attributes.put("PB", PalladiumAttribute.PB);
+			attributes.put("PE", PalladiumAttribute.PE);
+			attributes.put("PP", PalladiumAttribute.PP);
+			attributes.put("PS", PalladiumAttribute.PS);
+			attributes.put("SPD", PalladiumAttribute.SPD);
+		}
+		return attributes;
+	}
+
+	/**
+	 * @param attributes
+	 *            the attributes to set
+	 */
+	public void setAttributes(Map<String, PalladiumAttribute> attributes) {
+		this.attributes = attributes;
+	}
+
+	public List<PalladiumAttribute> getAttributeList() {
+		List<PalladiumAttribute> attributes = new ArrayList<PalladiumAttribute>(
+				getAttributes().values());
+		return attributes;
+	}
+
+	public void setAttributeList(List<PalladiumAttribute> attributes) {
+		for (PalladiumAttribute attribute : attributes) {
+			getAttributes().put(attribute.getShortName(), attribute);
+		}
+	}
+
+	/**
+	 * @param shortName
+	 * @return
+	 */
+	public PalladiumAttribute getAttribute(String shortName) {
+		return getAttributes().get(shortName);
+	}
+
+	/**
+	 * @param attribute
+	 */
+	public void setAttribute(PalladiumAttribute attribute) {
+		getAttributes().put(attribute.getShortName(), attribute);
 	}
 }

@@ -12,29 +12,30 @@ import javax.persistence.Id;
  * 
  */
 @Entity
-public class PalladiumAttribute  {
+public class PalladiumAttribute {
 	public static final PalladiumAttribute IQ = new PalladiumAttribute(
-			"Intelligence Quotient", "I.Q.", "");
+			"Intelligence Quotient", "IQ", "I.Q.", "");
 	public static final PalladiumAttribute ME = new PalladiumAttribute(
-			"Mental Endurance", "M.E.", "");
+			"Mental Endurance", "ME", "M.E.", "");
 	public static final PalladiumAttribute MA = new PalladiumAttribute(
-			"Mental Affinity", "M.A.", "");
+			"Mental Affinity", "MA", "M.A.", "");
 	public static final PalladiumAttribute PE = new PalladiumAttribute(
-			"Physical Endurance", "P.E.", "");
+			"Physical Endurance", "PE", "P.E.", "");
 	public static final PalladiumAttribute PP = new PalladiumAttribute(
-			"Physical Prowess", "P.P.", "");
+			"Physical Prowess", "PP", "P.P.", "");
 	public static final PalladiumAttribute PB = new PalladiumAttribute(
-			"Physical Beauty", "P.B.", "");
+			"Physical Beauty", "PB", "P.B.", "");
 	public static final PalladiumAttribute PS = new PalladiumAttribute(
-			"Physical Strength", "P.S.", "");
-	public static final PalladiumAttribute SPD = new PalladiumAttribute("Speed", "Spd.",
-			"");
+			"Physical Strength", "PS", "P.S.", "");
+	public static final PalladiumAttribute SPD = new PalladiumAttribute(
+			"Speed", "SPD", "Spd.", "");
 
 	// properties
 	@Id
 	@GeneratedValue
 	private Integer id;
 	private String name;
+	private String label;
 	private String shortName;
 	private String description;
 	private Integer value;
@@ -55,6 +56,7 @@ public class PalladiumAttribute  {
 	 */
 	public PalladiumAttribute(PalladiumAttribute mold, Integer value) {
 		setName(mold.getName());
+		setLabel(mold.getLabel());
 		setShortName(mold.getShortName());
 		setDescription(mold.getDescription());
 		setValue(value);
@@ -68,8 +70,10 @@ public class PalladiumAttribute  {
 	 * @param description
 	 *            - the attribute description
 	 */
-	public PalladiumAttribute(String name, String shortName, String description) {
+	public PalladiumAttribute(String name, String shortName, String label,
+			String description) {
 		setName(name);
+		setLabel(label);
 		setShortName(shortName);
 		setDescription(description);
 	}
@@ -157,5 +161,20 @@ public class PalladiumAttribute  {
 	@Override
 	public String toString() {
 		return String.format("%s(%s)", shortName, value);
+	}
+
+	/**
+	 * @return the label
+	 */
+	public String getLabel() {
+		return label;
+	}
+
+	/**
+	 * @param label
+	 *            the label to set
+	 */
+	public void setLabel(String label) {
+		this.label = label;
 	}
 }
