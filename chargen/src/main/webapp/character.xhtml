@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head></h:head>
+<body>
+	Character Sheet
+	<h:form>
+		<h:panelGrid columns="2">
+			<h:outputLabel id="nameLabel" value="Name:" for="nameField" />
+			<h:inputText id="nameField" value="${character.name}" />
+			<h:outputLabel id="playerLabel" value="Player:" for="playerField" />
+			<h:inputText id="playerField" value="${character.player}" />
+			<h:outputLabel id="campaignLabel" value="Campaign:"
+				for="campaignField" />
+			<h:inputText id="campaignField" value="${character.campaign}" />
+			<c:forEach items="${character.attributes}" var="attribute">
+				<h:outputLabel id="${attribute.shortName}Label"
+					value="${attribute.shortName}:" for="${attribute.shortName}Field" />
+				<h:inputText id="${attribute.shortName}Field"
+					value="${attribute.shortName}" />
+			</c:forEach>
+		</h:panelGrid>
+	</h:form>
+</body>
+</html>

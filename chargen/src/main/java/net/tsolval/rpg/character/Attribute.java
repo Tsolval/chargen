@@ -1,43 +1,32 @@
 package net.tsolval.rpg.character;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * @author tsolval
  * 
  */
 @Entity
+@Table(name = "ATTRIBUTE")
 public class Attribute {
-	// properties
 	@Id
 	@GeneratedValue
+	@Column(name = "ID")
 	private Integer id;
+	@Column(name = "NAME")
 	private String name;
+	@Column(name = "SHORTNAME")
 	private String shortName;
+	@Column(name = "DESCRIPTION")
 	private String description;
-	private Integer value;
 
 	/** Default constructor builds an empty attribute */
 	public Attribute() {
 		// default constructor: do nothing!
-	}
-
-	/**
-	 * This constructor builds an attribute based on one of the molds
-	 * pre-populated with the static attribute definition data.
-	 * 
-	 * @param mold
-	 *            - a pre-populated Attribute.
-	 * @param value
-	 *            - the value of the attribute
-	 */
-	public Attribute(Attribute mold, Integer value) {
-		setName(mold.getName());
-		setShortName(mold.getShortName());
-		setDescription(mold.getDescription());
-		setValue(value);
 	}
 
 	/**
@@ -114,21 +103,6 @@ public class Attribute {
 		this.description = description;
 	}
 
-	/**
-	 * @return the value
-	 */
-	public Integer getValue() {
-		return value;
-	}
-
-	/**
-	 * @param value
-	 *            the value to set
-	 */
-	public void setValue(Integer value) {
-		this.value = value;
-	}
-
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -136,6 +110,6 @@ public class Attribute {
 	 */
 	@Override
 	public String toString() {
-		return String.format("%s(%s)", shortName, value);
+		return String.format("Attribute [%s (%s)]", name, shortName);
 	}
 }

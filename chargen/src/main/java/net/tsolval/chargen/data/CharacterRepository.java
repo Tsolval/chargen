@@ -19,11 +19,15 @@ package net.tsolval.chargen.data;
 import java.util.List;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import net.tsolval.rpg.character.Character;
 
 import net.tsolval.rpg.character.palladium.PalladiumCharacter;
 
@@ -32,6 +36,16 @@ public class CharacterRepository {
 
 	@Inject
 	private EntityManager em;
+
+	@Named
+	@Produces
+	public Character getCharacter() {
+		TypedQuery<Character> query = em
+				.createQuery(
+						"SELECT c FROM Character c JOIN FETCH c.attributes where c.id=0",
+						Character.class);
+		return query.getSingleResult();
+	}
 
 	public List<PalladiumCharacter> findAllOrderedByName() {
 		CriteriaBuilder cb = em.getCriteriaBuilder();

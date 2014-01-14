@@ -1,8 +1,17 @@
 package net.tsolval.rpg.character;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  * A role playing game character.
@@ -10,14 +19,22 @@ import javax.persistence.Id;
  * @author walker.d.adams
  */
 @Entity
+@Table(name = "CHARACTER")
 public class Character {
 	@Id
 	@GeneratedValue
+	@Column(name = "ID")
 	private Integer id;
+	@Column(name = "NAME")
 	private String name;
+	@Column(name = "PLAYER")
 	private String player;
+	@Column(name = "CAMPAIGN")
 	private String campaign;
-	
+
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinTable(name = "Character_Attribute", joinColumns = { @JoinColumn(name = "CHARACTER_ID", referencedColumnName = "ID") }, inverseJoinColumns = { @JoinColumn(name = "ATTRIBUTE_ID", referencedColumnName = "ID") })
+	private List<Attribute> attributes;
 
 	/**
 	 * @return the id
@@ -87,5 +104,20 @@ public class Character {
 	@Override
 	public String toString() {
 		return String.format("Character [name=%s]", name);
+	}
+
+	/**
+	 * @return the attributes
+	 */
+	public List<Attribute> getAttributes() {
+		return attributes;
+	}
+
+	/**
+	 * @param attributes
+	 *            the attributes to set
+	 */
+	public void setAttributes(List<Attribute> attributes) {
+		this.attributes = attributes;
 	}
 }
