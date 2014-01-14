@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>Heroes Unlimited Character</title>
+	<style type="text/css">
+.label {
+	width: 0%;
+	text-align: right;
+}
+
+.stretch {
+	width: 100%;
+}
+
+.characterImage {
+	align: center;
+	text-align: center;
+	vertical-align: middle;
+}
+</style>
+</h:head>
+<body>
+	<h2>Heroes Unlimited RPG: Alien Character</h2>
+	<h:form>
+		<div id="vitals">
+			<div style="display: inline; width: 50%; float: left;">
+				<div class="characterImage">Image</div>
+			</div>
+			<div style="display: inline; width: 50%; float: right;">
+				<h:panelGrid columns="2" styleClass="stretch"
+					columnClasses="label, stretch">
+					<h:outputLabel id="nameLabel" value="Name:" for="nameField" />
+					<h:inputText id="nameField" value="" styleClass="stretch" />
+					<h:outputLabel id="trueNameLabel" value="True Name:"
+						for="trueNameField" />
+					<h:inputText id="trueNameField" value="" styleClass="stretch" />
+					<h:outputLabel id="occupationLabel" value="Occupation:"
+						for="occupationField" />
+					<h:inputText id="occupationField" value="" styleClass="stretch" />
+					<h:outputLabel id="alignmentLabel" value="Allignment:"
+						for="alignmentField" />
+					<h:inputText id="alignmentField" value="" styleClass="stretch" />
+					<h:outputLabel id="experienceLabel" value="Experience Level:"
+						for="experienceField" />
+					<h:inputText id="experienceField" value="" styleClass="stretch" />
+					<h:outputLabel id="hitPointLabel" value="Hit Points:"
+						for="hitPointField" />
+					<h:inputText id="hitPointField" value="" styleClass="stretch" />
+					<h:outputLabel id="sdcLabel" value="S.D.C. (Physical):"
+						for="sdcField" />
+					<h:inputText id="sdcField" value="" styleClass="stretch" />
+
+					<h:panelGrid columns="2" styleClass="stretch"
+						columnClasses="label, stretch">
+						<h:outputLabel id="iqLabel" value="I.Q.:" for="iqField" />
+						<h:inputText id="iqField" value="" size="2" />
+						<h:outputLabel id="meLabel" value="M.E.:" for="meField" />
+						<h:inputText id="meField" value="" size="2" />
+						<h:outputLabel id="maLabel" value="M.A.:" for="maField" />
+						<h:inputText id="maField" value="" size="2" />
+						<h:outputLabel id="psLabel" value="P.S.:" for="psField" />
+						<h:inputText id="psField" value="" size="2" />
+						<h:outputLabel id="ppLabel" value="P.P.:" for="ppField" />
+						<h:inputText id="ppField" value="" size="2" />
+						<h:outputLabel id="peLabel" value="P.E.:" for="peField" />
+						<h:inputText id="peField" value="" size="2" />
+						<h:outputLabel id="pbLabel" value="P.B.:" for="pbField" />
+						<h:inputText id="pbField" value="" size="2" />
+						<h:outputLabel id="spdLabel" value="Spd.:" for="spdField" />
+						<h:inputText id="spdField" value="" size="2" />
+					</h:panelGrid>
+
+					<h:panelGrid columns="2" styleClass="stretch"
+						columnClasses="label, stretch">
+						<h:outputLabel id="ageLabel" value="Age:" for="ageField" />
+						<h:inputText id="ageField" value="" styleClass="stretch" />
+						<h:outputLabel id="sexLabel" value="Sex:" for="sexField" />
+						<h:inputText id="sexField" value="" styleClass="stretch" />
+						<h:outputLabel id="weightLabel" value="Weight:" for="weightField" />
+						<h:inputText id="weightField" value="" styleClass="stretch" />
+						<h:outputLabel id="heightLabel" value="Height:" for="heightField" />
+						<h:inputText id="heightField" value="" styleClass="stretch" />
+						<h:outputLabel id="looLabel" value="Land of Origin:"
+							for="looField" />
+						<h:inputText id="looField" value="" styleClass="stretch" />
+						<h:outputLabel id="boLabel" value="Birth Order:" for="boField" />
+						<h:inputText id="boField" value="" styleClass="stretch" />
+						<h:outputLabel id="dispositionLabel" value="Disposition:"
+							for="dispositionField" />
+						<h:inputText id="dispositionField" value="" styleClass="stretch" />
+					</h:panelGrid>
+				</h:panelGrid>
+				<h:panelGrid columns="1" styleClass="stretch">
+					<h:outputLabel id="insanityLabel" value="Insanity (if any):"
+						for="insanityField" />
+					<h:inputTextarea id="insanityField" value="" styleClass="stretch" />
+				</h:panelGrid>
+			</div>
+		</div>		test
+	</h:form>
+</body>
+</html>
