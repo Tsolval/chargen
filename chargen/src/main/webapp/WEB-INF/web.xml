@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
- <description>Character Generator (chargen) Web View</description>
- <display-name>Character Generator</display-name>
- <!-- Set the PROJECT_STAGE to 'Development' to receive constructive error 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+	<description>Character Generator (chargen) Web View</description>
+	<display-name>Character Generator</display-name>
+	<!-- Set the PROJECT_STAGE to 'Development' to receive constructive error 
 		messages during development. Change the PROJECT_STAGE to 'Production' when 
 		putting the application into production -->
- <context-param>
-  <description>Indicate the stage of the initialized application.  Change the value of this parameter to "Production" (or remove parameter) when leaving development/testing phase</description>
-  <param-name>javax.faces.PROJECT_STAGE</param-name>
-  <param-value>Development</param-value>
- </context-param>
- <context-param>
-  <description>The resource optimization feature provides optimized component dependencies - JavaScript, CSS - which are compressed and aggregated to resource packages.  The loading of compressed resource packages may lead into significant client performance boost, since many small files are aggregated into one big file - the number of HTTP connections necessary to download application resources is significantly decreased.</description>
-  <param-name>org.richfaces.resourceOptimization.enabled</param-name>
-  <param-value>true</param-value>
- </context-param>
- <context-param>
-  <description>Use the richfaces predefined classic skin.  Other predefined skins include: DEFAULT, emeraldTown, blueSky, wine, japanCherry, ruby, classic, deepMarine, and plain, which contains no skin parameters and is intended for embedding RichFaces components into existing projects with their own styles.</description>
-  <param-name>org.richfaces.skin</param-name>
-  <param-value>classic</param-value>
- </context-param>
- <!-- add a welcome-file-list entry to allow JSF pages to be sued as welcome 
+	<context-param>
+		<description>Indicate the stage of the initialized application.  Change the value of this parameter to "Production" (or remove parameter) when leaving development/testing phase</description>
+		<param-name>javax.faces.PROJECT_STAGE</param-name>
+		<param-value>Development</param-value>
+	</context-param>
+	<context-param>
+		<description>The resource optimization feature provides optimized component dependencies - JavaScript, CSS - which are compressed and aggregated to resource packages.  The loading of compressed resource packages may lead into significant client performance boost, since many small files are aggregated into one big file - the number of HTTP connections necessary to download application resources is significantly decreased.</description>
+		<param-name>org.richfaces.resourceOptimization.enabled</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	<context-param>
+		<description>Use the richfaces predefined classic skin.  Other predefined skins include: DEFAULT, emeraldTown, blueSky, wine, japanCherry, ruby, classic, deepMarine, and plain, which contains no skin parameters and is intended for embedding RichFaces components into existing projects with their own styles.</description>
+		<param-name>org.richfaces.skin</param-name>
+		<param-value>classic</param-value>
+	</context-param>
+	<!-- add a welcome-file-list entry to allow JSF pages to be sued as welcome 
 		files -->
- <welcome-file-list>
-  <welcome-file>index.jsf</welcome-file>
- </welcome-file-list>
+	<welcome-file-list>
+		<welcome-file>index.jsf</welcome-file>
+	</welcome-file-list>
 </web-app>
