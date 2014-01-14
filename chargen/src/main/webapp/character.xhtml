@@ -16,11 +16,12 @@
 			<h:outputLabel id="campaignLabel" value="Campaign:"
 				for="campaignField" />
 			<h:inputText id="campaignField" value="${character.campaign}" />
-			<c:forEach items="${character.attributes}" var="attribute">
-				<h:outputLabel id="${attribute.shortName}Label"
-					value="${attribute.shortName}:" for="${attribute.shortName}Field" />
-				<h:inputText id="${attribute.shortName}Field"
-					value="${attribute.shortName}" />
+			<c:forEach items="${character.attributes}" var="characterAttribute">
+				<h:outputLabel id="${characterAttribute.attribute.shortName}Label"
+					value="${characterAttribute.attribute.shortName}:"
+					for="${characterAttribute.attribute.shortName}Field" />
+				<h:inputText id="${characterAttribute.attribute.shortName}Field"
+					value="${characterAttribute.value}" />
 			</c:forEach>
 		</h:panelGrid>
 	</h:form>

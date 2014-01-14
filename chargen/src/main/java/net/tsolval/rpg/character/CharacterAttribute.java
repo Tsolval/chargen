@@ -111,4 +111,16 @@ public class CharacterAttribute {
 		this.attribute = attribute;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return String
+				.format("CharacterAttribute [characterId=%s, attributeId=%s, value=%s, character=%s, attribute=%s]",
+						characterId, attributeId, value, character, attribute);
+	}
+
 }
