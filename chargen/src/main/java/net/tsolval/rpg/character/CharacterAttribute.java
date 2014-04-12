@@ -4,12 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
-import javax.persistence.ManyToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
-
-import net.tsolval.rpg.character.Character;
-import net.tsolval.rpg.character.Attribute;
 
 /**
  * This entity links a character to its various attributes.
@@ -29,12 +24,6 @@ public class CharacterAttribute {
 	private Integer attributeId;
 	@Column(name = "ATTRIBUTE_VALUE")
 	private Integer value;
-	@ManyToOne
-	@PrimaryKeyJoinColumn(name = "CHARACTER_ID", referencedColumnName = "ID")
-	private Character character;
-	@ManyToOne
-	@PrimaryKeyJoinColumn(name = "ATTRIBUTE_ID", referencedColumnName = "ID")
-	private Attribute attribute;
 
 	/**
 	 * @return the characterId
@@ -81,36 +70,6 @@ public class CharacterAttribute {
 		this.value = value;
 	}
 
-	/**
-	 * @return the character
-	 */
-	public Character getCharacter() {
-		return character;
-	}
-
-	/**
-	 * @param character
-	 *            the character to set
-	 */
-	public void setCharacter(Character character) {
-		this.character = character;
-	}
-
-	/**
-	 * @return the attribute
-	 */
-	public Attribute getAttribute() {
-		return attribute;
-	}
-
-	/**
-	 * @param attribute
-	 *            the attribute to set
-	 */
-	public void setAttribute(Attribute attribute) {
-		this.attribute = attribute;
-	}
-
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -119,8 +78,7 @@ public class CharacterAttribute {
 	@Override
 	public String toString() {
 		return String
-				.format("CharacterAttribute [characterId=%s, attributeId=%s, value=%s, character=%s, attribute=%s]",
-						characterId, attributeId, value, character, attribute);
+				.format("CharacterAttribute [characterId=%s, attributeId=%s, value=%s]",
+						characterId, attributeId, value);
 	}
-
 }

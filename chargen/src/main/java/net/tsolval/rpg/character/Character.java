@@ -1,14 +1,17 @@
 package net.tsolval.rpg.character;
 
-import java.util.List;
+import java.util.Map;
 
-import javax.persistence.CascadeType;
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.MapKeyJoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -29,8 +32,14 @@ public class Character {
 	private String player;
 	@Column(name = "CAMPAIGN")
 	private String campaign;
-	@OneToMany(mappedBy = "character", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	private List<CharacterAttribute> attributes;
+	@ElementCollection
+	@CollectionTable(name = "CHARACTER_ATTRIBUTE")
+	@MapKeyJoinColumn(name = "ATTRIBUTE_ID")
+	@Column(name = "ATTRIBUTE_VALUE")
+	private Map<Attribute, Integer> attributes;
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "CHARACTER_ID")
+	private CharacterStats stats;
 
 	/**
 	 * @return the id
@@ -92,21 +101,6 @@ public class Character {
 		this.campaign = campaign;
 	}
 
-	/**
-	 * @return the attributes
-	 */
-	public List<CharacterAttribute> getAttributes() {
-		return attributes;
-	}
-
-	/**
-	 * @param attributes
-	 *            the attributes to set
-	 */
-	public void setAttributes(List<CharacterAttribute> attributes) {
-		this.attributes = attributes;
-	}
-
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -115,5 +109,34 @@ public class Character {
 	@Override
 	public String toString() {
 		return String.format("Character [name=%s]", name);
+	}
+
+	/**
+	 * @return the stats
+	 */
+	public CharacterStats getStats() {
+		return stats;
+	}
+
+	/**
+	 * @param stats
+	 *            the stats to set
+	 */
+	public void setStats(CharacterStats stats) {
+		this.stats = stats;
+	}
+
+	/**
+	 * @return the attributes
+	 */
+	public Map<Attribute, Integer> getAttributes() {
+		return attributes;
+	}
+
+	/**
+	 * @param attributes the attributes to set
+	 */
+	public void setAttributes(Map<Attribute, Integer> attributes) {
+		this.attributes = attributes;
 	}
 }
