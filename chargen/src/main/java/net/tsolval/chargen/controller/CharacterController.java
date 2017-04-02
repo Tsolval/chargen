@@ -1,6 +1,5 @@
 package net.tsolval.chargen.controller;
 
-import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
